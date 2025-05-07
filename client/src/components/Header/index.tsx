@@ -1,14 +1,15 @@
-import { ButtonStyled, HeaderContainer, Logo } from "./styled";
+import { ContactUsButton } from "../ContactUsButton";
+import { HeaderContainer, Logo } from "./styled";
 import { Stack } from "@mui/material";
 
 export const Header = () => {
   return (
     <HeaderContainer>
-      <Stack width={1200} direction={"row"} sx={{justifyContent:"space-between"}}>
+      <Stack width={1200} direction={"row"} paddingX={'3%'} sx={{justifyContent:"space-between"} }>
       <Logo>
         Some Company
       </Logo>
-      <ButtonStyled>Contact Us</ButtonStyled>
+      <ContactUsButton buttonText="Contact Us" />
       </Stack>
     </HeaderContainer>
   )
