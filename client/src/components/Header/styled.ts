@@ -17,6 +17,7 @@ export const Logo = styled.p`
   margin: 0 0 0 3%;
   vertical-align: middle;
   font-size: 1.5rem;
+  font-weight: 600;
   color: #128C76;
 `;
 
@@ -25,4 +26,5 @@ export const ButtonStyled = styled(Button)<ButtonProps>(() => ({
     color:'white',
     minWidth: '15%',
     marginRight: '3%',
+    textTransform: 'none',
   }));
