@@ -25,3 +25,12 @@ export const Error = styled.p`
   padding: 0;
   color:rgb(191, 32, 32);
 `
+
+export const Sucsess = styled.p`
+  margin: 0 auto;
+  padding: 0;
+  alighn-self: auto;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+`

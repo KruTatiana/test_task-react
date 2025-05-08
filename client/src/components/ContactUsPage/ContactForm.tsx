@@ -1,6 +1,6 @@
 import { useForm, Controller, type SubmitHandler } from 'react-hook-form';
 import { TextField } from "@mui/material";
-import { Error, FormStyled, FormContainer, Submit } from "./styled"
+import { Error, FormStyled, FormContainer, Submit, Sucsess } from "./styled"
 import { HeaderTwo  } from "../styled";
 import { MainPageContainer } from '../HomePage/styled'
 
@@ -25,8 +25,12 @@ export const ContactForm = () => {
     reset()
   }
 
+  const sucsessmesage = "sucsess";
+
   return (
     <MainPageContainer $colored>
+      {sucsessmesage ? (<Sucsess>{sucsessmesage}</Sucsess>) :
+      (<>
       <HeaderTwo $colored>Only CTA on the page</HeaderTwo>
         <FormContainer>
           <FormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -66,6 +70,7 @@ export const ContactForm = () => {
             <Submit variant="contained" type="submit" sx={{textTransform:"none", marginTop:"10%"}}>Submit</Submit>
           </FormStyled>
         </FormContainer>
+        </>)}
     </MainPageContainer>
   )
 }
