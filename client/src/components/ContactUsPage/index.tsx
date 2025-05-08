@@ -25,7 +25,7 @@ export const ContactUsPage = () => {
     reset()
   }
 
-  const sucsessmesage = "sucsess";
+  const sucsessmesage = "";
 
   return (
     <MainPageContainer $colored>

@@ -1,4 +1,5 @@
 import { ContactUsButton } from "../ContactUsButton";
+import { VideoComponent } from "../VideoComponent";
 import { MainPageContainer} from "./styled";
 import { GridStyled, HeaderTwo  } from "../styled";
 import { Grid, Stack } from "@mui/material";
@@ -6,14 +7,14 @@ import { Grid, Stack } from "@mui/material";
 export const HomePage = () => {
   return (
     <MainPageContainer>
-      <GridStyled container spacing={8} padding={'5% 0'} justifyContent={'center'} borderBottom={'solid rgba(91, 149, 170, 0.8) 3px'}>
+      <GridStyled container spacing={2} padding={'5% 0'} justifyContent={'center'} borderBottom={'solid rgba(91, 149, 170, 0.8) 3px'}>
         <Stack width={1200} direction={"row"} paddingX={'3%'} sx={{justifyContent:"space-between"} }>
           <Grid size={5}>
             <h1>Most important title on the page</h1>
             <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum ultricies, sem urna convallis metus, vel suscipit nibh lacus tincidunt ante</article>
           </Grid>
-          <Grid size={5} justifySelf={'end'}>
-            <div>YouTubeVideo</div>
+          <Grid size={6} justifySelf={'end'}>
+            <VideoComponent />
           </Grid>
         </Stack>
       </GridStyled>
