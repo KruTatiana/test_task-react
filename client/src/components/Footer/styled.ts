@@ -7,6 +7,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;
   background-color: white;
+  border-top: solid rgba(91, 149, 170, 0.8) 3px;
 
   & p {
     margin: 5% 2%;

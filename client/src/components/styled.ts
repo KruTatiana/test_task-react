@@ -6,3 +6,9 @@ export const GridStyled = styled(Grid)<GridProps>(() => ({
   backgroundColor: '#095473',
   color:'white',
 }));
+
+export const HeaderTwo = styled.h2<{ $colored?: boolean }>`
+    margin: 0 auto;
+    padding: ${({$colored}) => ($colored ? '5% 0 3%' : '2% 0 5%')} ;
+    color:${({$colored}) => ($colored ? 'white' : '#095473')};
+`
