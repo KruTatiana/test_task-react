@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm, Controller, type SubmitHandler } from 'react-hook-form';
 import { TextField } from "@mui/material";
 import { Error, FormStyled, FormContainer, Submit, Sucsess } from "./styled"
@@ -5,7 +6,7 @@ import { HeaderTwo  } from "../styled";
 import { MainPageContainer } from '../HomePage/styled'
 
 interface IFormInput {
-  firstName: string
+  name: string
   email: string
   message?: string
 }
@@ -14,18 +15,44 @@ export const ContactUsPage = () => {
   const { control, reset, handleSubmit, formState: { errors } } = useForm({
     mode: 'onBlur',
     defaultValues: {
-      firstName: "",
+      name: "",
       email: "",
       message: "",
     },
   })
 
+  const [user, setUser] = useState("");
+    const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
+    const setContact = async (data: IFormInput) => {
+        setIsLoading(true);
+    try {
+      const response = await fetch('http://localhost:8080/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(data)
+        });
+      const result = await response.json();
+      console.log(result);
+      setUser(result.name)
+      } catch (error) {
+      console.error(error);
+      if(error){
+        setError((error as Error).message || "Unknown error")
+      }
+    }
+  }
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data)
+    setContact(data)
     reset()
   }
 
-  const sucsessmesage = "";
+  const sucsessmesage = user && `Thank you for your interest, ${user}`;
 
   return (
     <MainPageContainer $colored>
@@ -35,7 +62,7 @@ export const ContactUsPage = () => {
         <FormContainer>
           <FormStyled onSubmit={handleSubmit(onSubmit)}>
             <Controller
-              name="firstName"
+              name="name"
               control={control}
               rules={{ required: true }}
               render={({ field }) => <TextField label="Name" {...field} slotProps={{
@@ -44,7 +71,7 @@ export const ContactUsPage = () => {
                 },
               }} />}
             />
-            {errors.firstName && <Error>This is required.</Error>}
+            {errors.name && <Error>This is required.</Error>}
             <Controller
               name="email"
               control={control}
@@ -68,7 +95,8 @@ export const ContactUsPage = () => {
               }}/>}
             />
             {errors.message && <Error>This is required.</Error>}
-            {/* <Error>Something is wrong, try submitting the form again.</Error> */}
+                          {error && <Error>Something is wrong, try submitting the form again.</Error>}
+                          {isLoading && <p>Отправка данных...</p>}
             <Submit variant="contained" type="submit" sx={{textTransform:"none", marginTop:"10%"}}>Submit</Submit>
           </FormStyled>
         </FormContainer>
