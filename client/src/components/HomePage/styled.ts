@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const MainPageContainer = styled.main<{ $colored?: boolean }>`
-  width: 100vw;
+  width: 100%;
   min-height: 70vh;
   margin-top: 0;
   padding: 0px;

@@ -60,12 +60,14 @@ export const ContactUsPage = () => {
             <Controller
               name="message"
               control={control}
-              render={({ field }) => <TextField multiline rows={4}  sx={{marginTop:"15%"}} label="Message" {...field} slotProps={{
+              rules={{ required: true }}
+              render={({ field }) => <TextField multiline rows={4} sx={{marginTop:"15%"}} label="Message" {...field} slotProps={{
                 inputLabel: {
                   shrink: true,
                 },
               }}/>}
             />
+            {errors.message && <Error>This is required.</Error>}
             {/* <Error>Something is wrong, try submitting the form again.</Error> */}
             <Submit variant="contained" type="submit" sx={{textTransform:"none", marginTop:"10%"}}>Submit</Submit>
           </FormStyled>

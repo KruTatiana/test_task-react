@@ -7,7 +7,10 @@ type props = {
 
 export const ContactUsButton = ({buttonText}: props) => {
   return (
-    <ButtonStyled sx={{textTransform:"none"}} >
-      <Link to="/contact-us" style={{ textDecoration: "none", color: "white" }}>{buttonText}</Link>
-    </ButtonStyled>)
+    
+      <Link to="/contact-us" style={{ textDecoration: "none", color: "white", width:"15%"}}>
+        <ButtonStyled sx={{textTransform:"none"}} >
+          {buttonText}
+        </ButtonStyled>
+      </Link>)
 }
