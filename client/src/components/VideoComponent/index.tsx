@@ -7,8 +7,8 @@ export const VideoComponent = () => {
       <ReactPlayer 
         light
         url={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
-        width={"100%"}
-        height={"320px"}
+        width={"80%"}
+        height={"100%"}
         playing
       />
     </Fragment>
