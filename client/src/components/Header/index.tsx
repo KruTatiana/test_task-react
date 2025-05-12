@@ -5,7 +5,7 @@ import { Stack } from "@mui/material";
 export const Header = () => {
   return (
     <HeaderContainer>
-      <Stack width={1200} direction={"row"} paddingX={'3%'} sx={{justifyContent:"space-between"} }>
+      <Stack width={1200} direction={"row"} paddingX={"3%"} sx={{justifyContent:"space-between"} }>
       <Logo>
         Some Company
       </Logo>

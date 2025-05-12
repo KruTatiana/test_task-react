@@ -16,8 +16,8 @@ export const FormContainer = styled.div`
 `;
 
 export const Submit = styled(Button)<ButtonProps>(() => ({
-  backgroundColor: '#128C76',
-  color:'white',
+  backgroundColor: "#128C76",
+  color:"white",
 }));
 
 export const Error = styled.p`

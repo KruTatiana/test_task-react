@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useForm, Controller, type SubmitHandler } from 'react-hook-form';
+import { useState } from "react";
+import { useForm, Controller, type SubmitHandler } from "react-hook-form";
 import { TextField } from "@mui/material";
 import { Error, FormStyled, FormContainer, Submit, Sucsess } from "./styled"
 import { HeaderTwo  } from "../styled";
-import { MainPageContainer } from '../HomePage/styled'
+import { MainPageContainer } from "../HomePage/styled"
 
 interface IFormInput {
   name: string
@@ -13,7 +13,7 @@ interface IFormInput {
 
 export const ContactUsPage = () => {
   const { control, reset, handleSubmit, formState: { errors } } = useForm({
-    mode: 'onBlur',
+    mode: "onBlur",
     defaultValues: {
       name: "",
       email: "",
@@ -28,17 +28,17 @@ export const ContactUsPage = () => {
     const setContact = async (data: IFormInput) => {
         setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/api/contacts', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/api/contacts", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json;charset=utf-8'
+          "Content-Type": "application/json;charset=utf-8"
         },
         body: JSON.stringify(data)
         });
       const result = await response.json();
       console.log(result);
       setUser(result.name)
-      } catch (error) {
+    } catch (error) {
       console.error(error);
       if(error){
         setError((error as Error).message || "Unknown error")
@@ -47,7 +47,6 @@ export const ContactUsPage = () => {
   }
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data)
     setContact(data)
     reset()
   }
@@ -82,8 +81,8 @@ export const ContactUsPage = () => {
                 },
               }}/>}
             />
-            {errors.email?.type==='required' && <Error>This is required.</Error>}
-            {errors.email?.type==='pattern' && <Error>This is incorrect e-mail.</Error>}
+            {errors.email?.type==="required" && <Error>This is required.</Error>}
+            {errors.email?.type==="pattern" && <Error>This is incorrect e-mail.</Error>}
             <Controller
               name="message"
               control={control}
@@ -95,8 +94,8 @@ export const ContactUsPage = () => {
               }}/>}
             />
             {errors.message && <Error>This is required.</Error>}
-                          {error && <Error>Something is wrong, try submitting the form again.</Error>}
-                          {isLoading && <p>Отправка данных...</p>}
+            {error && <Error>Something is wrong, try submitting the form again.</Error>}
+            {isLoading && <p>Loading...</p>}
             <Submit variant="contained" type="submit" sx={{textTransform:"none", marginTop:"10%"}}>Submit</Submit>
           </FormStyled>
         </FormContainer>

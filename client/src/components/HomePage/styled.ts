@@ -8,7 +8,7 @@ export const MainPageContainer = styled.main<{ $colored?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${({$colored}) => ($colored ? '#095473' : 'white')};
+  background-color: ${({$colored}) => ($colored ? "#095473" : "white")};
 
   & h4 {
     text-alighn: center;
