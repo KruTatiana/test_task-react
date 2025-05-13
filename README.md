@@ -45,17 +45,17 @@ https://localhost:8080
 ```bash
 test_task-react/
 ├── ├── src/
+│   ├── assets/          # статика
 │   ├── components/      # UI-компоненты
-│   ├── pages/           # Основные страницы
-│   ├── styles/          # Стили (CSS Modules)
-│   ├── utils/           # Утилиты и вспомогательные функции
 │   ├── App.tsx
 │   └── main.tsx
 │   └── package.json
 ├── server/
-│   ├── db.json         # Мок-данные
-│   ├── server.js       # Запуск Express-сервера
-│   └── routes/         # Эндпоинты
+│   ├── db.json          # подключение базы данных
+│   ├── controllers/     # Запросы к БД
+│   ├── models/          # Модель данных
+│   ├── index.js         # Запуск Express-сервера
+│   └── routes/          # Эндпоинты
 │   └── package.json
 └── README.md
 ```
