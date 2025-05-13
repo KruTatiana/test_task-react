@@ -23,7 +23,7 @@ npm run dev
 #### 🖥️ Клиент (React)
 
 ```bash
-cd server
+cd client
 npm install
 npm run dev
 ```
